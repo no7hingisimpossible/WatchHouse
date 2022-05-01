@@ -31,6 +31,14 @@ const Navbar = () => {
                         </ul>
                         <span className="navbar-text">
                         {
+                                user && 
+                                <>
+                                    <Link to='/myItems'>My Items</Link>
+                                    <Link to='/manage'>Manage</Link>
+                                    <Link to='/addInventory'>Add Item</Link>
+                                </>
+                            }
+                        {
                                 user ? <span>{user.displayName} <button onClick={()=>signOut(auth)}>SIGNOUT</button></span> : 'USER'
                             }
                         </span>

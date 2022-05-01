@@ -32,13 +32,14 @@ const Manage = () => {
     }
     return (
         <div>
+            <button onClick={addnewItemHandler}>Add New Item</button>
              {
                 items.map(item =>
                     <div key={item._id}>
                         <p>{item.name}</p>
                         <p>{item.price}</p>
                         <p>{item.qty}</p>
-                        <button onClick={addnewItemHandler}>Add New Item</button>
+                        
                         <button onClick={() => deleteHandler(item._id)}>Delete</button>
                     </div>)
             }
