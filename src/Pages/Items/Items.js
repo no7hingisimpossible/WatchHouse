@@ -11,7 +11,7 @@ const Items = () => {
     const navigate = useNavigate()
     const updateHandler = (id) =>{
         console.log(id);
-        navigate(`/inventory/${id}`)
+        navigate(`/inventories/${id}`)
     }
     return (
         <div className='container'>
