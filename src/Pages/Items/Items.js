@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Item from '../Item/Item';
+
 
 const Items = () => {
     const [items, setItems] = useState([])
+    const navigate = useNavigate()
     useEffect(()=>{
         fetch('http://localhost:5000/inventories')
         .then(res => res.json())
         .then(data => setItems(data))
     },[])
-    const navigate = useNavigate()
+    
     const updateHandler = (id) =>{
         console.log(id);
         navigate(`/inventories/${id}`)
     }
+    
     return (
         <div className='container'>
-            {
+            {/* {
                 items.slice(0,6).map(item => 
                     <div className='mb-2 p-2' style={{border:'1px solid red'}} key={item._id}>
                         <h3>{item.name}</h3>
@@ -26,7 +30,15 @@ const Items = () => {
                         <button onClick={()=>updateHandler(item._id)} className='btn btn-primary'>Update</button>
 
                     </div>)
+            } */}
+
+            {
+                items.slice(0,6).map(item => 
+                <Item key={item._id}  item={item} updateHandler={updateHandler}>
+
+                </Item>)
             }
+            
         </div>
     );
 };

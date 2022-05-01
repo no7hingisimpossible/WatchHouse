@@ -29,7 +29,7 @@ const Inventories = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data, 'updated')
+            console.log(data)
             
         })
 
@@ -37,8 +37,10 @@ const Inventories = () => {
     }
 
     const deliveredbtnHandler = id => {
-        const quantity = item.qty - 1 
-        const url = `http://localhost:5000/inventories/${id}`
+          
+        if(item.qty > 0){
+         const quantity = item.qty - 1
+            const url = `http://localhost:5000/inventories/${id}`
         fetch(url, {
             method : 'PUT',
             headers: {
@@ -48,6 +50,12 @@ const Inventories = () => {
         })
         .then(res => res.json())
         .then(data => console.log(data ,'updated'))
+        }
+        else{
+            window.alert('Add item')
+        }
+        
+        
     }
     const navigate = useNavigate()
     const manage = () =>{
