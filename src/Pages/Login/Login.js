@@ -8,6 +8,7 @@ import { auth } from '../../firebase.init';
 
 const Login = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    
 
     let navigate = useNavigate();
     let location = useLocation();
