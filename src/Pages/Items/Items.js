@@ -18,7 +18,7 @@ const Items = () => {
     }
     
     return (
-        <div className='container row'>
+        <div className='container mx-auto row'>
             {/* {
                 items.slice(0,6).map(item => 
                     <div className='mb-2 p-2' style={{border:'1px solid red'}} key={item._id}>

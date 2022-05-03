@@ -1,0 +1,31 @@
+.banner{
+    background-image: url(../../images/bg1.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    background-position: right;
+    background-color: rgba(0,0,0,.5);
+    background-blend-mode: overlay;
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 5px solid white; */
+    height: 100vh;
+}
+.box div {
+    color: white;
+    /* border: 1px solid red; */
+    width: 80%;
+    
+}
+.box div h1 {
+    font-size: 4em;
+    letter-spacing: 10px;
+    border-bottom: 5px solid white;
+
+
+}

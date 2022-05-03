@@ -1,28 +1,82 @@
-import React from 'react';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase.init';
+import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 
 const SignIn = () => {
+
+
+    const location = useLocation()
+    const navigate = useNavigate()
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+    ] = useSignInWithEmailAndPassword(auth);
 
-      const signin = e => {
-          e.preventDefault()
-          const email = e.target.email.value;
-          const password = e.target.pass.value; 
-          signInWithEmailAndPassword(email, password)
-      }
+    const [userInfo, setUserInfo] = useState({
+        email: "",
+        password: ""
+    })
+    const [errors, setErrors] = useState({
+        emailError: "",
+        passwordError: ""
+
+    })
+    const emailHandler = e => {
+        setUserInfo({ ...userInfo, email: e.target.value })
+    }
+    const passwordHandler = e => {
+        setUserInfo({ ...userInfo, password: e.target.value })
+    }
+
+    const signin = e => {
+        e.preventDefault()
+
+        console.log(userInfo.email, userInfo.password);
+        signInWithEmailAndPassword(userInfo.email, userInfo.password)
+    }
+
+    const from = location?.state?.from?.pathname || '/'
+    if (user) {
+        navigate(from, { replace: true })
+        // toast.success('Welcome', {id: 'login'})
+    }
+    const resetPassword = () => {
+        sendPasswordResetEmail(userInfo.email)
+        // toast.success('Email sent', {id: "login666"})
+    }
     return (
-        <div>
-            <form action="" onSubmit={signin}>
-                <input type="email" name='email' placeholder='email' />
-                <input type="password" name='pass' placeholder='password' />
-                <input type="submit" value="SIGNIN" />
-            </form>
+        <div className='login-container'>
+            <div className=''>
+
+            </div>
+            <div>
+                <h3 className='text-center mt-3'>LOGIN</h3>
+                <div className='form'>
+                    <form onSubmit={signin} >
+                        <label htmlFor="email">Email</label>
+                        <input onChange={emailHandler} type="email" name="email" id="2" />
+                        {errors.emailError && <p className='text-danger fw-bold'>{errors.emailError}</p>}
+
+                        <label htmlFor="password">Password</label>
+                        <input onChange={passwordHandler} type="password" name="password" id="3" />
+                        {errors.passwordError && <p className='text-danger fw-bold'>{errors.passwordError}</p>}
+                        <input className='submit-btn' type="submit" value="LOGIN" />
+
+                        <p className='fw-bold mb-0 mt-2'>New to WatchHouse? <Link to='/signup' className='text-secondary fw-normal'>Please SignUp</Link></p>
+                        <p className='fw-bold'>Forgot Password?<button className='btn-link btn my-0' onClick={resetPassword}>Reset Password</button></p>
+                        {error?.message.includes('Firebase: Error (auth/wrong-password).') && <p className='text-danger fw-bold'>Password doesnt match</p>}
+                        {error?.message.includes('Firebase: Error (auth/user-not-found).') && <p className='text-danger fw-bold text-center'>User not Found</p>}
+
+
+                    </form>
+                    <GoogleSignIn />
+                </div>
+            </div>
         </div>
     );
 };

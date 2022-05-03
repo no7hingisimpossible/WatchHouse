@@ -2,16 +2,21 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase.init';
+import './Navbar.css'
 
 
 
 const Navbar = () => {
     const [user] = useAuthState(auth);
+    const navigate = useNavigate()
+    const signIn = () => {
+        navigate('/signin')
+    }
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className='sticky-top'>
+            <nav className="navbar navbar-expand-lg  navbar-light bg-light">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">Warehouse</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +28,7 @@ const Navbar = () => {
                                 <Link className="nav-link active" aria-current="page" to="/home">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/inventories">Inventories</Link>
+                                <Link className="nav-link" to="/manage">Inventories</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/signup">SIGNUP</Link>
@@ -39,7 +44,7 @@ const Navbar = () => {
                                 </>
                             }
                         {
-                                user ? <span>{user.displayName} <button onClick={()=>signOut(auth)}>SIGNOUT</button></span> : 'USER'
+                                user ? <span>{user.displayName} <button className='logout-btn' onClick={()=>signOut(auth)}>SIGNOUT</button></span> : <button onClick={signIn} className='logout-btn'>SIGIN</button>
                             }
                         </span>
                     </div>

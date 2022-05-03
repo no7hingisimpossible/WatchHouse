@@ -1,0 +1,36 @@
+.sth-container{
+ /* border: 1px solid red; */
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);  
+ width: 50%;
+ margin: 0 auto; 
+ margin-bottom: 30px;
+ padding: 10px;
+}
+.product-info{
+   /* border : 1px solid black; */
+   width: 300px;
+   padding: 10px 0px;
+   
+}
+.product-picture-container{
+    min-width: 200px;
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.product-picture{
+    width: 100%;
+}
+.btn-container{
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    
+}
+.delete-btn{
+    width: 100%;
+    border: none;
+    height: 50px;
+}
