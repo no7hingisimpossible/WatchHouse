@@ -82,7 +82,7 @@ const Inventories = () => {
                     <button className='delivered-btn' onClick={() => deliveredbtnHandler(id)}>Delivered</button>
                     <button className='manage-btn' onClick={manage}>View All Items</button>
                     <form onSubmit={restockHandler}>
-                        <input className='restock-field' type="number" name='restock' />
+                        <input className='restock-field' placeholder='Quantity' type="number" name='restock' />
                         <input className='restock-btn' type="submit" value="Restock" />
                     </form>
                 </div>

@@ -14,9 +14,10 @@ const Item = (props) => {
                     <img src={img} alt="" />
                 </div>
                 <div className='info-container'>
-                    <p className='fs-4'>{name}</p>
-                    <p className='fs-5'>${price}</p>
+                    <p className='fs-5'>{name}</p>
+                    <p className='fs-4 price'>${price}</p>
                     <p className=''>Stock: {qty} pcs</p>
+                    <p className='new'>New</p>
                 </div>
                 <button className='update-btn' onClick={() => updateHandler(_id)}>Update</button>
             </div>
