@@ -7,7 +7,7 @@ const Inventories = () => {
     const [item, setItem] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventories/${id}`
+        const url = `https://floating-atoll-21243.herokuapp.com/inventories/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -19,7 +19,7 @@ const Inventories = () => {
     const restockHandler = (event) => {
         event.preventDefault()
         const restock = parseInt(event.target.restock.value) + item.qty
-        const url = `http://localhost:5000/inventories/${id}`
+        const url = `https://floating-atoll-21243.herokuapp.com/inventories/${id}`
 
         fetch(url, {
             method: 'PUT',
@@ -42,7 +42,7 @@ const Inventories = () => {
 
         if (item.qty > 0) {
             const quantity = item.qty - 1
-            const url = `http://localhost:5000/inventories/${id}`
+            const url = `https://floating-atoll-21243.herokuapp.com/inventories/${id}`
             fetch(url, {
                 method: 'PUT',
                 headers: {

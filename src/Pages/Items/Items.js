@@ -7,7 +7,7 @@ const Items = () => {
     const [items, setItems] = useState([])
     const navigate = useNavigate()
     useEffect(()=>{
-        fetch('http://localhost:5000/inventories')
+        fetch('https://floating-atoll-21243.herokuapp.com/inventories')
         .then(res => res.json())
         .then(data => setItems(data))
     },[])

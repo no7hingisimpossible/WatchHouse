@@ -21,11 +21,7 @@ const SignIn = () => {
         email: "",
         password: ""
     })
-    const [errors, setErrors] = useState({
-        emailError: "",
-        passwordError: ""
-
-    })
+    
     const emailHandler = e => {
         setUserInfo({ ...userInfo, email: e.target.value })
     }
@@ -60,11 +56,9 @@ const SignIn = () => {
                     <form onSubmit={signin} >
                         <label htmlFor="email">Email</label>
                         <input onChange={emailHandler} type="email" name="email" id="2" />
-                        {errors.emailError && <p className='text-danger fw-bold'>{errors.emailError}</p>}
-
                         <label htmlFor="password">Password</label>
                         <input onChange={passwordHandler} type="password" name="password" id="3" />
-                        {errors.passwordError && <p className='text-danger fw-bold'>{errors.passwordError}</p>}
+                        
                         <input className='submit-btn' type="submit" value="LOGIN" />
 
                         <p className='fw-bold mb-0 mt-2'>New to WatchHouse? <Link to='/signup' className='text-secondary fw-normal'>Please SignUp</Link></p>

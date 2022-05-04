@@ -21,7 +21,7 @@ const AddNewItem = () => {
             qty : qty
         }
 
-        fetch('http://localhost:5000/inventories', {
+        fetch('https://floating-atoll-21243.herokuapp.com/inventories', {
             method: 'POST',
             body: JSON.stringify(order),
             headers: {

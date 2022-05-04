@@ -1,9 +1,10 @@
 .banner{
     background-image: url(../../images/bg1.jpg);
-    height: 100vh;
+    
     background-repeat: no-repeat;
     background-size: cover;
-    
+    min-height: 100vh;
+    /* background-attachment: fixed; */
     background-position: right;
     background-color: rgba(0,0,0,.5);
     background-blend-mode: overlay;
@@ -28,4 +29,13 @@
     border-bottom: 5px solid white;
 
 
+}
+
+@media screen and (max-width: 570px) {
+    .box div h1{
+        font-size: 2em;
+        letter-spacing: 8px;
+        border-bottom: 2px solid white;
+    }
+    
 }

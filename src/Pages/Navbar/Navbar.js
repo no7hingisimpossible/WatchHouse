@@ -1,8 +1,8 @@
 
-import { signOut } from 'firebase/auth';
+import { getAdditionalUserInfo, signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase.init';
 import './Navbar.css'
 
@@ -14,6 +14,8 @@ const Navbar = () => {
     const signIn = () => {
         navigate('/signin')
     }
+    
+      console.log(user);
     return (
         <div className='sticky-top'>
             <nav className="navbar navbar-expand-lg  navbar-light bg-light">
@@ -44,7 +46,7 @@ const Navbar = () => {
                                 </>
                             }
                         {
-                                user ? <span>{user.displayName} <button className='logout-btn' onClick={()=>signOut(auth)}>SIGNOUT</button></span> : <button onClick={signIn} className='logout-btn'>SIGIN</button>
+                                user ? <span>{user?.displayName} <button className='logout-btn' onClick={()=>signOut(auth)}>SIGNOUT</button></span> : <button onClick={signIn} className='logout-btn'>SIGIN</button>
                             }
                         </span>
                     </div>

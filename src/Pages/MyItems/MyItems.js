@@ -8,7 +8,7 @@ const MyItems = () => {
     const email = user.email
     const [items, setItems] = useState([])
     useEffect(() => {
-        const url = `http://localhost:5000/inventory?email=${email}`
+        const url = `https://floating-atoll-21243.herokuapp.com/inventory?email=${email}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -21,7 +21,7 @@ const MyItems = () => {
         const proceed = window.confirm("Are you sure you want to delete?")
         if (proceed) {
 
-            const url = `http://localhost:5000/inventory/${id}`
+            const url = `https://floating-atoll-21243.herokuapp.com/inventory/${id}`
             fetch(url, {
                 method: 'DELETE',
             })

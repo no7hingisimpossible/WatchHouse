@@ -5,7 +5,7 @@ import './Manage.css'
 const Manage = () => {
     const [items, setItems] = useState([])
     useEffect(() => {
-        const url = 'http://localhost:5000/inventories'
+        const url = 'https://floating-atoll-21243.herokuapp.com/inventories'
         fetch(url)
             .then(res => res.json())
             .then(data => setItems(data))
@@ -15,7 +15,7 @@ const Manage = () => {
         const proceed = window.confirm('Are you sure you want to delete?')
         if (proceed) {
             console.log(id);
-            const url = `http://localhost:5000/inventories/${id}`
+            const url = `https://floating-atoll-21243.herokuapp.com/inventories/${id}`
             fetch(url, {
                 method: 'DELETE',
             })

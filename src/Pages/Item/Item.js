@@ -8,14 +8,14 @@ const Item = (props) => {
 
 
     return (
-        <div className='col-4 g-5'>
+        <div className='col-sm-12 col-lg-4 g-5'>
             <div className='card-container'>
                 <div className='img-container'>
                     <img src={img} alt="" />
                 </div>
                 <div className='info-container'>
-                    <p className='fs-5'>{name}</p>
-                    <p className='fs-4 price'>${price}</p>
+                    <p className='m-0'>{name}</p>
+                    <p className='cost fs-5'>${price}</p>
                     <p className=''>Stock: {qty} pcs</p>
                     <p className='new'>New</p>
                 </div>
