@@ -11,6 +11,8 @@ import MyItems from './Pages/MyItems/MyItems';
 import SignUp from './Pages/SignUp/SignUp';
 import SignIn from './Pages/SignIn/SignIn';
 import Blogs from './Pages/Blogs/Blogs';
+import { Toaster } from 'react-hot-toast';
+import NoPageFound from './Pages/Items/NoPageFound/NoPageFound';
 
 
 
@@ -20,6 +22,7 @@ function App() {
   return (
     <div>
       <Navbar></Navbar>
+      <Toaster></Toaster>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/home' element={<Home/>}></Route>
@@ -31,6 +34,7 @@ function App() {
         <Route path='/addInventory' element={<RequireAuth><AddNewItem/></RequireAuth>}></Route>
         <Route path='/myItems' element={<RequireAuth><MyItems/></RequireAuth>}></Route>
         <Route path='/blogs' element={<Blogs/>}></Route>
+        <Route path='*' element={<NoPageFound/>}></Route>
       </Routes>
     </div>
   );

@@ -1,0 +1,55 @@
+.featured-bg{
+    background-image: url('../../images/feautredimg1.jpg');
+    border: 1px solid white;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.featured-bg-container{
+    border: 2px solid white;
+    height: 280px;
+    width: 550px;
+    margin: 0 auto;
+}
+.featured-text{
+    width: 200px;
+    height: 250px;
+    background-color: #1e3964b9;
+    margin-left: 20px;
+    margin-top: 10px;
+    padding: 20px;
+    color: white;
+
+}
+
+.featured-bg2{
+    background-image: url('../../images/featuredimg2.jpg');
+    border: 1px solid white;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.featured-text2{
+    width: 210px;
+    height: 250px;
+    background-color: #72253ad7;
+    margin-left: 20px;
+    margin-top: 10px;
+    padding: 20px;
+    color: white;
+}
+.feature-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+@media screen and (max-width: 570px) {
+    .feature-container{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+}

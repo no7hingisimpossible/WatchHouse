@@ -16,10 +16,13 @@ const Items = () => {
         console.log(id);
         navigate(`/inventories/${id}`)
     }
+    const viewall = () => {
+        navigate('/manage')
+    }
 
     return (
         <div className='container mx-auto row'>
-            
+            <h1 className='mt-5 text-center'>Inventory</h1>
 
             {
                 items.slice(0, 6).map(item =>
@@ -27,7 +30,7 @@ const Items = () => {
 
                     </Item>)
             }
-
+            <button onClick={viewall} className='w-0 mt-2 ms-auto btn btn-link'>View All</button>
         </div>
     );
 };

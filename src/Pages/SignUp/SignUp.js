@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase.init';
 import './SignUp.css'
@@ -63,6 +64,7 @@ const SignUp = () => {
 
     if (user) {
         navigate(from, { replace: true });
+        toast.success('SignUp successfull', {id: "toast-signup"})
     }
 
     

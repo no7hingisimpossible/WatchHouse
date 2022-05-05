@@ -22,7 +22,7 @@ const Item = (props) => {
                 </div>
                 <button className='update-btn' onClick={() => updateHandler(_id)}>Update</button>
             </div>
-
+            
         </div>
     );
 };

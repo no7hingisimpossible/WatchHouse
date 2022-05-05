@@ -8,7 +8,7 @@ import cardimg4 from '../../images/cardimg4.jpg'
 const AllBrands = () => {
     return (
         <div className='container mt-5'>
-            <h1>New Suppliers</h1>
+            <h1 className='text-center mt-5 mb-5'>New Suppliers</h1>
             <div>
                 <div className='allbrand-img'>
                     <div className='text-infos'>

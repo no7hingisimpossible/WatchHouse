@@ -1,6 +1,6 @@
-import { sendPasswordResetEmail } from 'firebase/auth';
 import React, { useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase.init';
 import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
@@ -39,11 +39,12 @@ const SignIn = () => {
     const from = location?.state?.from?.pathname || '/'
     if (user) {
         navigate(from, { replace: true })
-        // toast.success('Welcome', {id: 'login'})
+        toast.success('Welcome', {id: 'login'})
     }
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
     const resetPassword = () => {
         sendPasswordResetEmail(userInfo.email)
-        // toast.success('Email sent', {id: "login666"})
+        toast.success('Email sent', {id: "login666"})
     }
     return (
         <div className='login-container'>
