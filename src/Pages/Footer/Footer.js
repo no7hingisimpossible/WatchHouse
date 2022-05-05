@@ -18,21 +18,10 @@ const Footer = () => {
                     <p>Instagram</p>
                 </div>
                 <div className=' text-center w-75 mx-auto p-2 px-3'>
-                    <h5>Opening Hours</h5>
-                    <div className='d-flex justify-content-between'>
-                        <p>Sunday</p>
-                        <p>09:00-17:00</p>
-                    </div>
-                    <div className='d-flex justify-content-between'>
-                        <p>Monday</p>
-                        <p>09:00-17:00</p>
-                    </div>
-                    <div className='d-flex justify-content-between '>
-                        <p>Tuesday</p>
-                        <p>09:00-17:00</p>
-                    </div>
-
-                    
+                    <h5>Our Suppliers</h5>
+                    <p className='text-center'>ROLEX</p>
+                    <p className='text-center'>OMEGA</p>
+                    <p className='text-center'>TUDOR</p>
                 </div>
             </div>
                 <p className='text-center  text-white mt-4'><small>Copyright&copy; 2022 WatchHouse. All right reseved</small></p>

@@ -29,7 +29,7 @@ ul li{
 }
 
 .cardd-container{
-    width: 273px;
+   max-width: 273px;
     /* border: 1px solid black; */
     color: white;
 }
@@ -63,13 +63,17 @@ ul li{
     font-size: 14px;
     
 }
+/* .allbrandss-container{
+    border: 1px solid blue;
+    width: 100%;
+ } */
 
 @media screen and (max-width: 570px) {
     .allcard-container{
         display: grid;
         grid-template-columns: 1fr;
         margin: 0 auto;
-        border: 3px solid gold;
+        /* border: 3px solid gold; */
         width: 60%;
     }
     .allbrand-img{
@@ -88,15 +92,10 @@ ul li{
 @media screen  and (min-width: 577px) and (max-width:992px) {
     .allcard-container{
         grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 140px;
+    
     }
     .allbrand-img{
-        background-image: url('../../images/Allbrands.jpg');
-        height: 200px;
         background-size: cover;
-        background-repeat: no-repeat;
-        width: 100%;
-        border: 1px solid white;
         background-position: center center;
         background-color: rgba(0,0,0,.4);
         background-blend-mode: overlay;

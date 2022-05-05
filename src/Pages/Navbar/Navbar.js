@@ -30,7 +30,7 @@ const Navbar = () => {
                                 <Link className="nav-link active" aria-current="page" to="/home">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/manage">Inventories</Link>
+                                <Link className="nav-link" to="/blogs">BLOGS</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/signup">SIGNUP</Link>

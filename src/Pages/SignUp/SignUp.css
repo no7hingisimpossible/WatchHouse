@@ -45,3 +45,13 @@
     background-color: rgba(0,0,0,.2);
     background-blend-mode: overlay;
 }
+@media screen and (max-width: 570px) {
+    .form{
+        width: 75%;
+    }
+}
+@media screen  and (min-width: 577px) and (max-width:992px) {
+    .from{
+        width: 75%;
+    }
+}

@@ -5,12 +5,7 @@ import { auth } from '../../firebase.init';
 import './SignUp.css'
 
 const SignUp = () => {
-    const [displayName, setDisplayName] = useState('');
-
-    const [updateProfile, updating, error] = useUpdateProfile(auth);
-
-
-
+    
     const [userInfo, setUserInfo] = useState({
         name: "",
         email: "",
@@ -31,8 +26,8 @@ const SignUp = () => {
     const navigate = useNavigate()
 
     const nameHandler = e => {
-        // setUserInfo({ ...userInfo, name: e.target.value })
-        setDisplayName(e.target.value)
+        setUserInfo({ ...userInfo, name: e.target.value })
+        
     }
     const emailHandler = e => {
         setUserInfo({ ...userInfo, email: e.target.value })
@@ -52,12 +47,12 @@ const SignUp = () => {
 
 
 
-    const signup =  async e => {
+    const signup = e => {
         e.preventDefault()
 
         console.log(userInfo.email, userInfo.password);
         createUserWithEmailAndPassword(userInfo.email, userInfo.password)
-        await updateProfile({displayName})
+        
     }
 
 
@@ -70,25 +65,14 @@ const SignUp = () => {
         navigate(from, { replace: true });
     }
 
-    if (error) {
-        return (
-            <div>
-                <p>Error: {error.message}</p>
-            </div>
-        );
-    }
-    if (updating) {
-        return <p>Updating...</p>;
-    }
-
-    console.log(displayName);
+    
 
     return (
         <div className='signup-container'>
             <div></div>
             <div>
                 <h2 className='text-center my-3'>Please Register</h2>
-                {error?.message}
+                
                 
                 <div className='form'>
                     <form onSubmit={signup}>
