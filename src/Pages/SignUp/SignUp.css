@@ -30,7 +30,7 @@
 
 .form{
     margin: 0 auto;
-    width: 25%;
+    width: 300px;
     background-color: transparent;
     padding: 20px;
     border-radius: 8px;
@@ -45,13 +45,13 @@
     background-color: rgba(0,0,0,.2);
     background-blend-mode: overlay;
 }
-@media screen and (max-width: 570px) {
+/* @media screen and (max-width: 570px) {
     .form{
         width: 75%;
     }
 }
-@media screen  and (min-width: 577px) and (max-width:992px) {
+@media screen  and (min-width: 571px) and (max-width:992px) {
     .from{
         width: 75%;
     }
-}
+} */
