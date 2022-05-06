@@ -1,9 +1,12 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase.init';
 
 const AddNewItem = () => {
     const [user, loading, error] = useAuthState(auth);
+    const navigate = useNavigate()
     const addItem = (e) => {
         e.preventDefault()
         const name = e.target.name.value
@@ -34,7 +37,8 @@ const AddNewItem = () => {
         })
             .then((response) => response.json())
             .then((data) => console.log(data));
-
+            toast.success('Product Added', { id: 'addItems' })
+            navigate('/myItems')
     }
     return (
         <div>

@@ -16,4 +16,5 @@ This is an inventory management website for users to check their stocks of item 
 <li>only 6 items will be listed on the page page</li> 
 <li>the user will be able to see all the items on the view all page</li> 
 <li>Three more routes will appear when the user will signin.</li>
+<li>Implemented JWT on sign in and add items</li>
 
