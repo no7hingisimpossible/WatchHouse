@@ -31,6 +31,7 @@ const Items = () => {
                     </Item>)
             }
             <button onClick={viewall} className='w-0 mt-2 ms-auto btn btn-link'>View All</button>
+            
         </div>
     );
 };

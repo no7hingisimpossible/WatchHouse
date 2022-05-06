@@ -20,7 +20,7 @@ const Navbar = () => {
         <div className='sticky-top'>
             <nav className="navbar navbar-expand-lg  navbar-light bg-light">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">Warehouse</Link>
+                    <Link className="navbar-brand" to="/">WatchHouse</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

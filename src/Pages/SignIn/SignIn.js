@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase.init';
 import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 
 const SignIn = () => {
-
+    const [user1] = useAuthState(auth);
+    console.log(user1?.email);
 
     const location = useLocation()
     const navigate = useNavigate()
