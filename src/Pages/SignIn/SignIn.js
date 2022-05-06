@@ -56,8 +56,8 @@ const SignIn = () => {
             });
             navigate(from, { replace: true });
 
-        // navigate(from, { replace: true })
-        // toast.success('Welcome', { id: 'login' })
+        
+        toast.success('Welcome', { id: 'login' })
     }
 
 
