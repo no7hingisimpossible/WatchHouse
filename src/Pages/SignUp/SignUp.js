@@ -6,7 +6,7 @@ import { auth } from '../../firebase.init';
 import './SignUp.css'
 
 const SignUp = () => {
-    
+
     const [userInfo, setUserInfo] = useState({
         name: "",
         email: "",
@@ -21,6 +21,7 @@ const SignUp = () => {
 
     const [
         createUserWithEmailAndPassword,
+        loading,
         user
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
@@ -28,7 +29,7 @@ const SignUp = () => {
 
     const nameHandler = e => {
         setUserInfo({ ...userInfo, name: e.target.value })
-        
+
     }
     const emailHandler = e => {
         setUserInfo({ ...userInfo, email: e.target.value })
@@ -53,7 +54,7 @@ const SignUp = () => {
 
         console.log(userInfo.email, userInfo.password);
         createUserWithEmailAndPassword(userInfo.email, userInfo.password)
-        
+
     }
 
 
@@ -64,18 +65,24 @@ const SignUp = () => {
 
     if (user) {
         navigate(from, { replace: true });
-        toast.success('SignUp successfull', {id: "toast-signup"})
+        toast.success('SignUp successfull', { id: "toast-signup" })
+    }
+    if (loading) {
+        return <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        </div>
     }
 
-    
 
     return (
         <div className='signup-container'>
             <div></div>
             <div>
                 <h2 className='text-center my-3'>Please Register</h2>
-                
-                
+
+
                 <div className='form'>
                     <form onSubmit={signup}>
                         <label htmlFor="name">Name</label>

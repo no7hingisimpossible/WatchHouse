@@ -9,7 +9,12 @@ const MyItems = () => {
     const [items, setItems] = useState([])
     useEffect(() => {
         const url = `https://floating-atoll-21243.herokuapp.com/inventory?email=${email}`
-        fetch(url)
+        fetch(url, {
+            headers: {
+                'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
             .then(res => res.json())
             .then(data => {
                 console.log(data)

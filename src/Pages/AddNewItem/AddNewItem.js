@@ -1,6 +1,9 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase.init';
 
 const AddNewItem = () => {
+    const [user, loading, error] = useAuthState(auth);
     const addItem = (e) => {
         e.preventDefault()
         const name = e.target.name.value
@@ -25,11 +28,12 @@ const AddNewItem = () => {
             method: 'POST',
             body: JSON.stringify(order),
             headers: {
+                'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
                 'Content-type': 'application/json; charset=UTF-8',
             },
         })
             .then((response) => response.json())
-            .then((json) => console.log(json));
+            .then((data) => console.log(data));
 
     }
     return (

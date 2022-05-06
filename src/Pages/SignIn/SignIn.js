@@ -6,8 +6,8 @@ import { auth } from '../../firebase.init';
 import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 
 const SignIn = () => {
-    const [user1] = useAuthState(auth);
-    console.log(user1?.email);
+    const [user1] = useAuthState(auth)
+
 
     const location = useLocation()
     const navigate = useNavigate()
@@ -22,7 +22,7 @@ const SignIn = () => {
         email: "",
         password: ""
     })
-    
+
     const emailHandler = e => {
         setUserInfo({ ...userInfo, email: e.target.value })
     }
@@ -38,14 +38,40 @@ const SignIn = () => {
     }
 
     const from = location?.state?.from?.pathname || '/'
+
     if (user) {
-        navigate(from, { replace: true })
-        toast.success('Welcome', {id: 'login'})
+        fetch('https://floating-atoll-21243.herokuapp.com/login', {
+            method: 'POST',
+            body: JSON.stringify({
+                email: user1?.email 
+            }),
+            headers: {
+                
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                localStorage.setItem("accessToken", data.token)
+            });
+            navigate(from, { replace: true });
+
+        // navigate(from, { replace: true })
+        // toast.success('Welcome', { id: 'login' })
     }
+
+
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
     const resetPassword = () => {
         sendPasswordResetEmail(userInfo.email)
-        toast.success('Email sent', {id: "login666"})
+        toast.success('Email sent', { id: "login666" })
+    }
+    if (loading) {
+        return <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        </div>
     }
     return (
         <div className='login-container'>
@@ -60,7 +86,7 @@ const SignIn = () => {
                         <input onChange={emailHandler} type="email" name="email" id="2" />
                         <label htmlFor="password">Password</label>
                         <input onChange={passwordHandler} type="password" name="password" id="3" />
-                        
+
                         <input className='submit-btn' type="submit" value="LOGIN" />
 
                         <p className='fw-bold mb-0 mt-2'>New to WatchHouse? <Link to='/signup' className='text-secondary fw-normal'>Please SignUp</Link></p>
